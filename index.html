@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>厦门出发泰山周末游攻略</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(to right, #d32f2f, #b71c1c);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.4rem;
+            font-weight: 300;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+        
+        .date-info {
+            background: rgba(0, 0, 0, 0.2);
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+        }
+        
+        .mountain-icon {
+            position: absolute;
+            bottom: 0;
+            right: 50px;
+            font-size: 6rem;
+            opacity: 0.2;
+        }
+        
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            padding: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e53935;
+            color: #b71c1c;
+        }
+        
+        .card-title i {
+            margin-right: 12px;
+            font-size: 1.8rem;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        
+        th {
+            background-color: #ffebee;
+            color: #d32f2f;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        tr:hover {
+            background-color: #ffebee;
+        }
+        
+        .highlight {
+            background-color: #fff8e1;
+            font-weight: 600;
+            color: #d32f2f;
+        }
+        
+        .budget-card {
+            grid-column: 1 / -1;
+        }
+        
+        .budget-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .budget-item {
+            background: linear-gradient(135deg, #f5f5f5, #e8e8e8);
+            border-radius: 10px;
+            padding: 20px;
+            border-left: 4px solid #d32f2f;
+        }
+        
+        .budget-item h3 {
+            color: #b71c1c;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .budget-item h3 i {
+            margin-right: 10px;
+        }
+        
+        .budget-total {
+            background: linear-gradient(135deg, #ffcdd2, #ef9a9a);
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 25px;
+        }
+        
+        .budget-price {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: #b71c1c;
+            margin: 15px 0;
+        }
+        
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .tip {
+            background: #e3f2fd;
+            border-radius: 10px;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tip:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: #2196f3;
+        }
+        
+        .tip h4 {
+            color: #0d47a1;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .tip h4 i {
+            margin-right: 10px;
+            color: #2196f3;
+        }
+        
+        .warning {
+            background: #fff8e1;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            border-radius: 0 10px 10px 0;
+            margin-top: 25px;
+        }
+        
+        .warning h3 {
+            color: #ff8f00;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .warning h3 i {
+            margin-right: 10px;
+        }
+        
+        footer {
+            background: #263238;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .footer-highlight {
+            color: #ff8a80;
+            font-weight: bold;
+        }
+        
+        .icon-list {
+            display: flex;
+            justify-content: center;
+            margin-top: 15px;
+        }
+        
+        .icon-list i {
+            font-size: 2.5rem;
+            margin: 0 15px;
+            color: #ff8a80;
+        }
+        
+        .map-container {
+            height: 300px;
+            background: #e0e0e0;
+            border-radius: 10px;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #555;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1><i class="fas fa-mountain"></i> 厦门出发泰山周末游攻略</h1>
+                <p class="subtitle">登五岳之首，观日出云海，两天一夜经典行程</p>
+                <div class="date-info">
+                    <i class="fas fa-calendar-alt"></i> 行程日期：下个周末（2天1晚） | <i class="fas fa-user"></i> 单人经济型
+                </div>
+            </div>
+            <div class="mountain-icon">
+                <i class="fas fa-mountain"></i>
+            </div>
+        </header>
+        
+        <div class="main-content">
+            <div class="card">
+                <div class="card-title">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h2>行程安排</h2>
+                </div>
+                
+                <table>
+                    <tr>
+                        <th>时间</th>
+                        <th>行程安排</th>
+                        <th>交通/住宿</th>
+                        <th>备注</th>
+                    </tr>
+                    <tr>
+                        <td><strong>周五晚</strong></td>
+                        <td>✈️ 厦门高崎 → 济南遥墙 (19:00-21:30)</td>
+                        <td>飞机+机场大巴</td>
+                        <td>提前预订机票</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="3"><strong>周六</strong></td>
+                        <td>🚌 济南机场 → 泰安 (8:30-10:00)</td>
+                        <td>大巴/高铁</td>
+                        <td>高铁可选济南西→泰安站</td>
+                    </tr>
+                    <tr>
+                        <td>⛰ 红门登山 (10:30-16:00)</td>
+                        <td>徒步/景区巴士</td>
+                        <td>经典路线：红门-中天门-南天门</td>
+                    </tr>
+                    <tr>
+                        <td>🌄 入住山顶酒店，观日落/星空</td>
+                        <td>山顶住宿</td>
+                        <td>提前1周订房！</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="3"><strong>周日</strong></td>
+                        <td>🌅 玉皇顶观日出 (5:00-6:30)</td>
+                        <td>徒步/索道下山</td>
+                        <td>备好手电筒&厚外套</td>
+                    </tr>
+                    <tr>
+                        <td>🚠 南天门 → 中天门索道 (7:30)</td>
+                        <td>索道+景区巴士</td>
+                        <td>或徒步下山至中天门</td>
+                    </tr>
+                    <tr class="highlight">
+                        <td>🚄 泰安→济南西 (14:00) → 厦门 (18:00)</td>
+                        <td>高铁+飞机</td>
+                        <td>预留3小时中转</td>
+                    </tr>
+                </table>
+                
+                <div class="map-container">
+                    <i class="fas fa-map-marked-alt"></i> 泰山登山路线示意图
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-title">
+                    <i class="fas fa-hiking"></i>
+                    <h2>登山攻略</h2>
+                </div>
+                
+                <h3>路线选择：</h3>
+                <ul>
+                    <li><strong>经典路线</strong>：红门→中天门(2.5h)→十八盘→南天门(1.5h)→玉皇顶</li>
+                    <li><strong>省力方案</strong>：天外村乘巴士→中天门→索道→南天门(全程约3h)</li>
+                    <li><strong>夜爬需谨慎</strong>：台阶陡峭照明有限，建议白天登山</li>
+                </ul>
+                
+                <h3>日出观景点：</h3>
+                <ul>
+                    <li><strong>✅ 最佳位置</strong>：玉皇顶(视野开阔)、日观峰(需提前1小时占位)</li>
+                    <li><strong>❌ 避坑</strong>：詹鲁台位置偏僻，路径危险</li>
+                </ul>
+                
+                <h3>必带装备：</h3>
+                <div class="tips-grid">
+                    <div class="tip">
+                        <h4><i class="fas fa-tshirt"></i> 衣物</h4>
+                        <p>冲锋衣/轻薄羽绒服(山顶夜间5-10℃)</p>
+                    </div>
+                    <div class="tip">
+                        <h4><i class="fas fa-shoe-prints"></i> 装备</h4>
+                        <p>防滑运动鞋、双肩包、充电宝(山顶租用30元/小时)</p>
+                    </div>
+                    <div class="tip">
+                        <h4><i class="fas fa-utensils"></i> 食物</h4>
+                        <p>士力架+保温杯(山顶热水免费)</p>
+                    </div>
+                    <div class="tip">
+                        <h4><i class="fas fa-ticket-alt"></i> 票务</h4>
+                        <p>公众号"泰山景区"预约，刷身份证入园</p>
+                    </div>
+                </div>
+                
+                <div class="warning">
+                    <h3><i class="fas fa-exclamation-triangle"></i> 重要注意事项</h3>
+                    <ul>
+                        <li>山顶住宿紧张，优先选择 <strong>"泰山气象台宾馆"</strong>(步行至观日点5分钟)</li>
+                        <li>泰安站(高铁站)≠泰山站(普速站)，打车时务必确认！</li>
+                        <li>济南→厦门最后一班高铁18:43(G242)，飞机建议选20:00后航班</li>
+                        <li>天气查询：提前3天关注"泰山天气预报"，降雨概率＞30%慎行</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card budget-card">
+                <div class="card-title">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <h2>费用预算</h2>
+                </div>
+                
+                <div class="budget-grid">
+                    <div class="budget-item">
+                        <h3><i class="fas fa-plane"></i> 交通费用</h3>
+                        <ul>
+                            <li>厦门-济南往返机票: <strong>¥800~1200</strong></li>
+                            <li>济南机场→泰安大巴: <strong>¥70</strong></li>
+                            <li>泰山景区巴士(单程): <strong>¥35</strong></li>
+                            <li>索道(单程): <strong>¥100</strong></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="budget-item">
+                        <h3><i class="fas fa-hotel"></i> 住宿餐饮</h3>
+                        <ul>
+                            <li>泰山门票: <strong>¥115</strong> (学生/60岁以上半价)</li>
+                            <li>山顶经济型床位: <strong>¥150~300</strong></li>
+                            <li>2天餐饮+补给: <strong>¥200</strong></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="budget-item">
+                        <h3><i class="fas fa-shopping-bag"></i> 其他费用</h3>
+                        <ul>
+                            <li>应急物品+纪念品: <strong>¥100</strong></li>
+                            <li>登山杖租赁: <strong>¥20</strong></li>
+                            <li>市内交通: <strong>¥50</strong></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="budget-total">
+                    <h3><i class="fas fa-calculator"></i> 总费用预算</h3>
+                    <div class="budget-price">¥1570~2270</div>
+                    <p>浮动取决于机票和住宿档次</p>
+                    
+                    <div style="margin-top: 20px; display: flex; justify-content: center; gap: 30px;">
+                        <div>
+                            <h4><i class="fas fa-hotel"></i> 经济型</h4>
+                            <p>¥1600-2200 (青旅床位+经济舱)</p>
+                        </div>
+                        <div>
+                            <h4><i class="fas fa-star"></i> 舒适型</h4>
+                            <p>¥2500-3500 (山顶标间+飞机选座)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p><span class="footer-highlight">旅行建议：</span> 立即预订机票(厦门→济南暑期折扣多)，山顶住宿务必电话确认！</p>
+            <p>祝您登顶成功，云海日出不负所望！ <i class="fas fa-sun"></i> 🌅</p>
+            
+            <div class="icon-list">
+                <i class="fas fa-hiking"></i>
+                <i class="fas fa-camera"></i>
+                <i class="fas fa-cloud-sun"></i>
+                <i class="fas fa-map-signs"></i>
+                <i class="fas fa-suitcase"></i>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
